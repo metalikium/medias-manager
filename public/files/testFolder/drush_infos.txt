@@ -1,0 +1,9 @@
+------
+DRUPAL
+------
+
+drush site-install standard --account-name=admin --account-pass=admin --db-url=mysql://metalikium:passwd@localhost:8888/dtest
+
+drush site-install standard --account-name=admin --account-pass=admin --db-url=mysql://metalikium:passwd@localhost/dtest
+
+drush dl devel admin_menu module_filter

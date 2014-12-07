@@ -11,14 +11,17 @@
 |
 */
 
+// Homepage route
 Route::get('/', function()
 {
 	return View::make('index');
 });
 
-// Set route for elFinder
+// elFinder route
 Route::group(array('before' => 'auth'), function()
 {
-	\Route::get('elfinder', 'Barryvdh\Elfinder\ElfinderController@showIndex');
-	\Route::any('elfinder/connector', 'Barryvdh\Elfinder\ElfinderController@showConnector');
 });
+
+Route::get('elfinder', 'Barryvdh\Elfinder\ElfinderController@showIndex');
+Route::any('elfinder/connector', 'Barryvdh\Elfinder\ElfinderController@showConnector');
+Route::get('elfinder/standalonepopup/{input_id}', 'Barryvdh\Elfinder\ElfinderController@showPopup');
