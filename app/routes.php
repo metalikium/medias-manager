@@ -15,3 +15,10 @@ Route::get('/', function()
 {
 	return View::make('hello');
 });
+
+// Set route for elFinder
+Route::group(array('before' => 'auth'), function()
+{
+	\Route::get('elfinder', 'Barryvdh\Elfinder\ElfinderController@showIndex');
+	\Route::any('elfinder/connector', 'Barryvdh\Elfinder\ElfinderController@showConnector');
+});
